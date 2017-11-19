@@ -1,0 +1,26 @@
+C:\Users\Green\source\repos\Lab2_var24\bin\Debug\Lab2_var24.exe.config
+C:\Users\Green\source\repos\Lab2_var24\bin\Debug\Lab2_var24.exe
+C:\Users\Green\source\repos\Lab2_var24\bin\Debug\Lab2_var24.pdb
+C:\Users\Green\source\repos\Lab2_var24\obj\Debug\Lab2_var24.csprojResolveAssemblyReference.cache
+C:\Users\Green\source\repos\Lab2_var24\obj\Debug\Lab2_var24.Form1.resources
+C:\Users\Green\source\repos\Lab2_var24\obj\Debug\Lab2_var24.Properties.Resources.resources
+C:\Users\Green\source\repos\Lab2_var24\obj\Debug\Lab2_var24.csproj.GenerateResource.Cache
+C:\Users\Green\source\repos\Lab2_var24\obj\Debug\Lab2_var24.csproj.CoreCompileInputs.cache
+C:\Users\Green\source\repos\Lab2_var24\obj\Debug\Lab2_var24.exe
+C:\Users\Green\source\repos\Lab2_var24\obj\Debug\Lab2_var24.pdb
+F:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\bin\Debug\Lab2_var24.exe.config
+F:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\obj\Debug\Lab2_var24.exe
+F:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\obj\Debug\Lab2_var24.pdb
+D:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\bin\Debug\Lab2_var24.exe.config
+D:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\obj\Debug\Lab2_var24.exe
+D:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\obj\Debug\Lab2_var24.pdb
+E:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\bin\Debug\Lab2_var24.exe.config
+E:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\bin\Debug\Lab2_var24.exe
+E:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\bin\Debug\Lab2_var24.pdb
+E:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\obj\Debug\Lab2_var24.csprojResolveAssemblyReference.cache
+E:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\obj\Debug\Lab2_var24.Form1.resources
+E:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\obj\Debug\Lab2_var24.Properties.Resources.resources
+E:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\obj\Debug\Lab2_var24.csproj.GenerateResource.Cache
+E:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\obj\Debug\Lab2_var24.csproj.CoreCompileInputs.cache
+E:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\obj\Debug\Lab2_var24.exe
+E:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\obj\Debug\Lab2_var24.pdb
