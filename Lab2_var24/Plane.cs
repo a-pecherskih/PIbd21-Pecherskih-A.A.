@@ -109,8 +109,6 @@ namespace Lab2_var24
         public override void movePlane(Graphics g)
         {
             startPosX += 10;
-                //(MaxSpeed * 500 / (float)Weight) /
-                  //  (countPassengers == 0 ? 1 : countPassengers);
             drawPlane(g);
         }
 
