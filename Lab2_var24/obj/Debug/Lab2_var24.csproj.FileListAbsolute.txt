@@ -24,3 +24,4 @@ E:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\obj\Debug\Lab2_v
 E:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\obj\Debug\Lab2_var24.csproj.CoreCompileInputs.cache
 E:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\obj\Debug\Lab2_var24.exe
 E:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\obj\Debug\Lab2_var24.pdb
+E:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\obj\Debug\Lab2_var24.Form2.resources
