@@ -36,6 +36,9 @@
             this.pictureBoxTakePlane = new System.Windows.Forms.PictureBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.listBoxLevels = new System.Windows.Forms.ListBox();
+            this.buttonDowm = new System.Windows.Forms.Button();
+            this.buttonUp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAirfield)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakePlane)).BeginInit();
@@ -51,7 +54,7 @@
             // 
             // buttonSetPlane
             // 
-            this.buttonSetPlane.Location = new System.Drawing.Point(924, 31);
+            this.buttonSetPlane.Location = new System.Drawing.Point(955, 239);
             this.buttonSetPlane.Name = "buttonSetPlane";
             this.buttonSetPlane.Size = new System.Drawing.Size(117, 36);
             this.buttonSetPlane.TabIndex = 11;
@@ -61,7 +64,7 @@
             // 
             // buttonSetLightPlane
             // 
-            this.buttonSetLightPlane.Location = new System.Drawing.Point(925, 85);
+            this.buttonSetLightPlane.Location = new System.Drawing.Point(955, 281);
             this.buttonSetLightPlane.Name = "buttonSetLightPlane";
             this.buttonSetLightPlane.Size = new System.Drawing.Size(108, 36);
             this.buttonSetLightPlane.TabIndex = 12;
@@ -75,7 +78,7 @@
             this.groupBox1.Controls.Add(this.pictureBoxTakePlane);
             this.groupBox1.Controls.Add(this.maskedTextBox1);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(889, 285);
+            this.groupBox1.Location = new System.Drawing.Point(889, 344);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(232, 214);
             this.groupBox1.TabIndex = 13;
@@ -94,7 +97,7 @@
             // 
             // pictureBoxTakePlane
             // 
-            this.pictureBoxTakePlane.Location = new System.Drawing.Point(36, 64);
+            this.pictureBoxTakePlane.Location = new System.Drawing.Point(44, 59);
             this.pictureBoxTakePlane.Name = "pictureBoxTakePlane";
             this.pictureBoxTakePlane.Size = new System.Drawing.Size(159, 131);
             this.pictureBoxTakePlane.TabIndex = 2;
@@ -117,11 +120,42 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Место";
             // 
+            // listBoxLevels
+            // 
+            this.listBoxLevels.FormattingEnabled = true;
+            this.listBoxLevels.Location = new System.Drawing.Point(922, 16);
+            this.listBoxLevels.Name = "listBoxLevels";
+            this.listBoxLevels.Size = new System.Drawing.Size(170, 147);
+            this.listBoxLevels.TabIndex = 14;
+            // 
+            // buttonDowm
+            // 
+            this.buttonDowm.Location = new System.Drawing.Point(939, 177);
+            this.buttonDowm.Name = "buttonDowm";
+            this.buttonDowm.Size = new System.Drawing.Size(57, 49);
+            this.buttonDowm.TabIndex = 15;
+            this.buttonDowm.Text = "<<";
+            this.buttonDowm.UseVisualStyleBackColor = true;
+            this.buttonDowm.Click += new System.EventHandler(this.buttonDowm_Click);
+            // 
+            // buttonUp
+            // 
+            this.buttonUp.Location = new System.Drawing.Point(1006, 177);
+            this.buttonUp.Name = "buttonUp";
+            this.buttonUp.Size = new System.Drawing.Size(57, 49);
+            this.buttonUp.TabIndex = 16;
+            this.buttonUp.Text = ">>";
+            this.buttonUp.UseVisualStyleBackColor = true;
+            this.buttonUp.Click += new System.EventHandler(this.buttonUp_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1152, 516);
+            this.ClientSize = new System.Drawing.Size(1152, 579);
+            this.Controls.Add(this.buttonUp);
+            this.Controls.Add(this.buttonDowm);
+            this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSetLightPlane);
             this.Controls.Add(this.buttonSetPlane);
@@ -146,6 +180,9 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonTakePlane;
+        private System.Windows.Forms.ListBox listBoxLevels;
+        private System.Windows.Forms.Button buttonDowm;
+        private System.Windows.Forms.Button buttonUp;
     }
 }
 
