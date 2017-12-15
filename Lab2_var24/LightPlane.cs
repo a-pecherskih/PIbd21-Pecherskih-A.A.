@@ -46,5 +46,10 @@ namespace Lab2_var24
             g.FillRectangle(br, startPosX + 60, startPosY + 50, 10, 5);           
             g.DrawRectangle(pen2, startPosX + 59, startPosY + 49, 11, 6);
         }
+
+        public void setDopColor(Color color)
+        {
+            dopColor2 = color;
+        }
     }
 }

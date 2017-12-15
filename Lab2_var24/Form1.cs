@@ -12,122 +12,113 @@ namespace Lab2_var24
 {
     public partial class Form1 : Form
     {
-        Color color;
-        Color dopColor;
-        Color dopColor2;
-        int maxSpeed;
-        double maxAltitude;
-        int maxCountPass;
-        int weight;
-
-        private ITransport inter;
+        Airfield airfield;
+        Form2 form;
         public Form1()
         {
             InitializeComponent();
-            color = Color.White;
-            dopColor = Color.Yellow;
-            maxSpeed = 750; 
-            maxAltitude = 1.50;
-            maxCountPass = 7;
-            weight = 4100;
-            buttonSelectColor.BackColor = color;
-            buttonSelectDopColor.BackColor = dopColor;
-            buttonSelectDopColor2.BackColor = dopColor2;
+            airfield = new Airfield(5);
 
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonSelectColor_Click(object sender, EventArgs e)
-        {
-            ColorDialog cd = new ColorDialog();
-            if (cd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            for (int i = 1; i < 6; i++)
             {
-                color = cd.Color;
-                buttonSelectColor.BackColor = color;
+                listBoxLevels.Items.Add("Уровень " + i);
+            }
+            listBoxLevels.SelectedIndex = airfield.getCurrentLevel;
+            Draw();
+        }
+
+        private void Draw()
+        {
+            if (listBoxLevels.SelectedIndex >= 0)
+            {
+                Bitmap bmp = new Bitmap(pictureBoxAirfield.Width, pictureBoxAirfield.Height);
+                Graphics gr = Graphics.FromImage(bmp);
+                airfield.Draw(gr);
+                pictureBoxAirfield.Image = bmp;
             }
         }
 
-        private void buttonSelectDopColor_Click(object sender, EventArgs e)
+        private void buttonDowm_Click(object sender, EventArgs e)
         {
-            ColorDialog cd = new ColorDialog();
-            if (cd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                dopColor = cd.Color;
-                buttonSelectDopColor.BackColor = dopColor;
-            }
+            airfield.LevelDown();
+            listBoxLevels.SelectedIndex = airfield.getCurrentLevel;
+            Draw();
         }
 
-        private void buttonSelectDopColor2_Click(object sender, EventArgs e)
+        private void buttonUp_Click(object sender, EventArgs e)
         {
-            ColorDialog cd = new ColorDialog();
-            if (cd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                dopColor2 = cd.Color;
-                buttonSelectDopColor2.BackColor = dopColor2;
-            }
-        }
-
-        private bool checkFields()
-        {
-            if (!int.TryParse(textBoxMaxSpeed.Text, out maxSpeed))
-            {
-                return false;
-            }
-            if(!double.TryParse(textBoxMaxAltitude.Text, out maxAltitude))
-            {
-                return false;
-            }
-            if (!int.TryParse(textBoxMaxCountPassenget.Text, out maxCountPass))
-            {
-                return false;
-            }
-            if (!int.TryParse(textBoxWeight.Text, out weight))
-            {
-                return false;
-            }
-            return true;
+            airfield.LevelUp();
+            listBoxLevels.SelectedIndex = airfield.getCurrentLevel;
+            Draw();
         }
 
         private void buttonSetPlane_Click(object sender, EventArgs e)
         {
-            if (checkFields())
+            form = new Form2();
+            form.AddEvent(AddPlane);
+            form.Show();
+        }
+
+        private void AddPlane(ITransport plane)
+        {
+            if (plane != null)
             {
-                inter = new Plane(maxCountPass, maxSpeed, maxAltitude, weight, color, dopColor);
-                Bitmap bmp = new Bitmap(pictureBoxDraw.Width, pictureBoxDraw.Height);
-                Graphics gr = Graphics.FromImage(bmp);
-                inter.drawPlane(gr);
-                pictureBoxDraw.Image = bmp;
+                int place = airfield.PutPlaneInAirfield(plane);
+                if (place > -1)
+                {
+                    Draw();
+                    MessageBox.Show("Ваше место: " + place);
+                }
+                else
+                {
+                    MessageBox.Show("Машину не удалось поставить");
+                }
             }
         }
 
         private void buttonSetLightPlane_Click(object sender, EventArgs e)
         {
-            if (checkFields())
+            ColorDialog dialog = new ColorDialog();
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                inter = new LightPlane(maxCountPass, maxSpeed, maxAltitude, weight, color, checkBoxWings.Checked, checkBoxScrew.Checked, dopColor, dopColor2);
-                Bitmap bmp = new Bitmap(pictureBoxDraw.Width, pictureBoxDraw.Height);
-                Graphics gr = Graphics.FromImage(bmp);
-                inter.drawPlane(gr);
-                pictureBoxDraw.Image = bmp;
+                ColorDialog dialogDop = new ColorDialog();
+                if (dialogDop.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    ColorDialog dialogDop2 = new ColorDialog();
+                    if (dialogDop.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        var plane = new LightPlane(7, 750, 1.50, 4100, dialog.Color, true, true, dialogDop.Color, dialogDop2.Color);
+                        int place = airfield.PutPlaneInAirfield(plane);
+                        Draw();
+                        MessageBox.Show("Ваше место: " + place);
+                    }
+                }
             }
-
         }
 
-        private void buttonMove_Click_1(object sender, EventArgs e)
+        private void buttonTakePlane_Click(object sender, EventArgs e)
         {
-            if (inter != null)
-            {
-                Bitmap bmp = new Bitmap(pictureBoxDraw.Width, pictureBoxDraw.Height);
-                Graphics gr = Graphics.FromImage(bmp);
-                inter.movePlane(gr);
-                pictureBoxDraw.Image = bmp;
+            if (listBoxLevels.SelectedIndex > -1)
+            {//Прежде чем забрать машину, надо выбрать с какого уровня будем забирать
+                string level = listBoxLevels.Items[listBoxLevels.SelectedIndex].ToString();
+                if (maskedTextBox1.Text != "")
+                {
+                    ITransport plane = airfield.GetPlaneFromAirfield(Convert.ToInt32(maskedTextBox1.Text));
+
+                    Bitmap bmp = new Bitmap(pictureBoxTakePlane.Width, pictureBoxTakePlane.Height);
+                    Graphics gr = Graphics.FromImage(bmp);
+                    plane.setPosition(5, -10);
+                    plane.drawPlane(gr);
+                    pictureBoxTakePlane.Image = bmp;
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Извините, на этом месте нет машины");
+                }
             }
         }
 
-        
+       
     }
 }
