@@ -30,7 +30,6 @@
         {
             this.pictureBoxAirfield = new System.Windows.Forms.PictureBox();
             this.buttonSetPlane = new System.Windows.Forms.Button();
-            this.buttonSetLightPlane = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonTakePlane = new System.Windows.Forms.Button();
             this.pictureBoxTakePlane = new System.Windows.Forms.PictureBox();
@@ -54,23 +53,13 @@
             // 
             // buttonSetPlane
             // 
-            this.buttonSetPlane.Location = new System.Drawing.Point(955, 239);
+            this.buttonSetPlane.Location = new System.Drawing.Point(946, 256);
             this.buttonSetPlane.Name = "buttonSetPlane";
             this.buttonSetPlane.Size = new System.Drawing.Size(117, 36);
             this.buttonSetPlane.TabIndex = 11;
-            this.buttonSetPlane.Text = "Set plane";
+            this.buttonSetPlane.Text = "Добавить самолет";
             this.buttonSetPlane.UseVisualStyleBackColor = true;
             this.buttonSetPlane.Click += new System.EventHandler(this.buttonSetPlane_Click);
-            // 
-            // buttonSetLightPlane
-            // 
-            this.buttonSetLightPlane.Location = new System.Drawing.Point(955, 281);
-            this.buttonSetLightPlane.Name = "buttonSetLightPlane";
-            this.buttonSetLightPlane.Size = new System.Drawing.Size(108, 36);
-            this.buttonSetLightPlane.TabIndex = 12;
-            this.buttonSetLightPlane.Text = "Set light plane";
-            this.buttonSetLightPlane.UseVisualStyleBackColor = true;
-            this.buttonSetLightPlane.Click += new System.EventHandler(this.buttonSetLightPlane_Click);
             // 
             // groupBox1
             // 
@@ -157,7 +146,6 @@
             this.Controls.Add(this.buttonDowm);
             this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.buttonSetLightPlane);
             this.Controls.Add(this.buttonSetPlane);
             this.Controls.Add(this.pictureBoxAirfield);
             this.Name = "Form1";
@@ -174,7 +162,6 @@
 
         private System.Windows.Forms.PictureBox pictureBoxAirfield;
         private System.Windows.Forms.Button buttonSetPlane;
-        private System.Windows.Forms.Button buttonSetLightPlane;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBoxTakePlane;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;

@@ -43,5 +43,10 @@ namespace Lab2_var24
             startPosX = x;
             startPosY = y;
         }
+
+        public virtual void setMainColor(Color color)
+        {
+            ColorBody = color;
+        }
     }
 }

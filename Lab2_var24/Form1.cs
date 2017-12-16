@@ -13,6 +13,7 @@ namespace Lab2_var24
     public partial class Form1 : Form
     {
         Airfield airfield;
+        Form2 form;
         public Form1()
         {
             InitializeComponent();
@@ -53,16 +54,24 @@ namespace Lab2_var24
 
         private void buttonSetPlane_Click(object sender, EventArgs e)
         {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            form = new Form2();
+            form.AddEvent(AddPlane);
+            form.Show();
+        }
+
+        private void AddPlane(ITransport plane)
+        {
+            if (plane != null)
             {
-                ColorDialog dialogDop = new ColorDialog();
-                if (dialogDop.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                int place = airfield.PutPlaneInAirfield(plane);
+                if (place > -1)
                 {
-                    var plane = new Plane(7, 750, 1.50, 4100, dialog.Color, dialogDop.Color);
-                    int place = airfield.PutPlaneInAirfield(plane);
                     Draw();
                     MessageBox.Show("Ваше место: " + place);
+                }
+                else
+                {
+                    MessageBox.Show("Машину не удалось поставить");
                 }
             }
         }

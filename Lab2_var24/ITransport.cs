@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lab2_var24
 {
-    interface ITransport
+    public interface ITransport
     {
         void movePlane(Graphics g);
 
@@ -18,5 +18,7 @@ namespace Lab2_var24
         void loadPassenger(int count);
 
         int getPassenger();
+
+        void setMainColor(Color color);
     }
 }
