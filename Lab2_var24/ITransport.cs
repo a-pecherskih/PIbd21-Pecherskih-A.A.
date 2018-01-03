@@ -20,5 +20,7 @@ namespace Lab2_var24
         int getPassenger();
 
         void setMainColor(Color color);
+
+        string getInfo();
     }
 }

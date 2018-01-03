@@ -87,7 +87,7 @@ namespace Lab2_var24
             }
         }
 
-        public Plane( int maxCountPassengers, int maxSpeed, double maxAltitude, double weight, Color color, Color dopcolor)
+        public Plane(int maxCountPassengers, int maxSpeed, double maxAltitude, double weight, Color color, Color dopcolor)
         {
             this.MaxCountPassengers = maxCountPassengers;
             this.MaxSpeed = maxSpeed;
@@ -95,6 +95,24 @@ namespace Lab2_var24
             this.ColorBody = color;
             this.DopColor = dopcolor;
             this.Weight = weight;
+            this.countPassengers = 0;
+            Random rand = new Random();
+            startPosX = rand.Next(10, 200);
+            startPosY = rand.Next(10, 200);
+        }
+
+        public Plane(string info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 6)
+            {
+                MaxCountPassengers = Convert.ToInt32(strs[0]);
+                MaxSpeed = Convert.ToInt32(strs[1]);
+                MaxAltitude = Convert.ToDouble(strs[2]);
+                Weight = Convert.ToDouble(strs[3]);
+                ColorBody = Color.FromName(strs[4]);
+                DopColor = Color.FromName(strs[5]);
+            }
             this.countPassengers = 0;
             Random rand = new Random();
             startPosX = rand.Next(10, 200);
@@ -122,11 +140,18 @@ namespace Lab2_var24
             g.FillEllipse(brColor, startPosX + 70, startPosY + 45, 20, 15); //перед
             g.DrawRectangle(pen, startPosX + 54, startPosY + 19, 16, 66); // обводка крыльев
             g.FillRectangle(brDopColor, startPosX + 55, startPosY + 20, 15, 65); //крылья 
-            g.DrawRectangle(pen, startPosX-1, startPosY + 44, 81, 16); // обводка основы
+            g.DrawRectangle(pen, startPosX - 1, startPosY + 44, 81, 16); // обводка основы
             g.FillRectangle(brColor, startPosX, startPosY + 45, 80, 15); //основная линия  
 
             g.DrawRectangle(pen, startPosX - 1, startPosY + 34, 11, 36); // обводка зада
             g.FillRectangle(brDopColor, startPosX, startPosY + 35, 10, 35); //зад
+        }
+
+        public override string getInfo()
+        {
+            return MaxCountPassengers + ";" + MaxSpeed + ";" +
+                MaxAltitude + ";" + Weight + ";" + ColorBody.Name +
+                ";" + DopColor.Name;
         }
     }
 }

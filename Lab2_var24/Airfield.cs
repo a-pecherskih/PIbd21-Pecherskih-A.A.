@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -96,6 +97,115 @@ namespace Lab2_var24
                 }
                 g.DrawLine(pen, i * placeSizeWidth, 0, i * placeSizeWidth, 400);
             }
+        }
+
+        public bool SaveData(string filename)
+        {
+            if (File.Exists(filename))
+            {
+                File.Delete(filename);
+            }
+            using (FileStream fs = new FileStream(filename, FileMode.Create))
+            {
+                using (BufferedStream bs = new BufferedStream(fs))
+                {
+                    //Запись кол-ва уровней
+                    byte[] info = new UTF8Encoding(true).GetBytes("CountLeveles:" +
+                        airfield.Count + Environment.NewLine);
+                    fs.Write(info, 0, info.Length);
+                    foreach (var level in airfield)
+                    {
+                        //Начинаем уровень
+                        info = new UTF8Encoding(true).GetBytes("Level" + Environment.NewLine);
+                        fs.Write(info, 0, info.Length);
+                        for (int i = 0; i < countPlaces; i++)
+                        {
+                            var plane = level[i];
+                            if (plane != null)
+                            {//Если место не пустое, записываем тип самолета
+                                if (plane.GetType().Name == "Plane")
+                                {
+                                    info = new UTF8Encoding(true).GetBytes("Plane:");
+                                    fs.Write(info, 0, info.Length);
+                                }
+                                if (plane.GetType().Name == "LightPlane")
+                                {
+                                    info = new UTF8Encoding(true).GetBytes("LightPlane:");
+                                    fs.Write(info, 0, info.Length);
+                                }
+                                //Запись параметров
+                                info = new UTF8Encoding(true).GetBytes(plane.getInfo() + Environment.NewLine);
+                                fs.Write(info, 0, info.Length);
+                            }
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+
+        public bool LoadData(string filename)
+        {
+            if (!File.Exists(filename))
+            {
+                return false;
+            }
+            using (FileStream fs = new FileStream(filename, FileMode.Open))
+            {
+                string s = "";
+                using (BufferedStream bs = new BufferedStream(fs))
+                {
+                    byte[] b = new byte[fs.Length];
+                    UTF8Encoding temp = new UTF8Encoding(true);
+                    while (bs.Read(b, 0, b.Length) > 0)
+                    {
+                        s += temp.GetString(b);
+                    }
+                }
+                s = s.Replace("\r", "");
+                var strs = s.Split('\n');
+                if (strs[0].Contains("CountLeveles"))
+                {//Считываем количество уровней
+                    int count = Convert.ToInt32(strs[0].Split(':')[1]);
+                    if (airfield != null)
+                    {
+                        airfield.Clear();
+                    }
+                    airfield = new List<ClassArray<ITransport>>(count);
+                }
+                else
+                {
+                    return false;
+                }
+                int counter = -1;
+                for (int i = 1; i < strs.Length; ++i)
+                {//шагаем по считанным записям
+                    if (strs[i] == "Level")
+                    {//начинаем новый уровень
+                        counter++;
+                        airfield.Add(new ClassArray<ITransport>(countPlaces, null));
+                    }
+                    else if (strs[i].Split(':')[0] == "Plane")
+                    {
+                        ITransport plane = new Plane(strs[i].Split(':')[1]);
+                        int number = airfield[counter] + plane;
+                        if (number == -1)
+                        {
+                            return false;
+                        }
+                    }
+                    else if (strs[i].Split(':')[0] == "LightPlane")
+                    {
+                        ITransport plane = new LightPlane(strs[i].Split(':')[1]);
+                        int number = airfield[counter] + plane;
+                        if (number == -1)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
         }
     }
 }

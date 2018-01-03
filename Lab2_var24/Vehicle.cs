@@ -48,5 +48,7 @@ namespace Lab2_var24
         {
             ColorBody = color;
         }
+
+        public abstract string getInfo();
     }
 }

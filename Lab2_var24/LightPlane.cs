@@ -24,6 +24,26 @@ namespace Lab2_var24
             this.dopColor2 = dopColor2;
         }
 
+        public LightPlane(string info) : base(info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 8)
+            {
+                MaxCountPassengers = Convert.ToInt32(strs[0]);
+                MaxSpeed = Convert.ToInt32(strs[1]);
+                MaxAltitude = Convert.ToDouble(strs[2]);
+                Weight = Convert.ToDouble(strs[3]);
+                ColorBody = Color.FromName(strs[4]);
+                wings = Convert.ToBoolean(strs[5]);
+                screw = Convert.ToBoolean(strs[6]);
+                dopColor2 = Color.FromName(strs[7]);
+            }
+            this.countPassengers = 0;
+            Random rand = new Random();
+            startPosX = rand.Next(10, 200);
+            startPosY = rand.Next(10, 200);
+        }
+
         protected override void drawLightPlane(Graphics g)
         {
             if (wings)
@@ -43,7 +63,7 @@ namespace Lab2_var24
             base.drawLightPlane(g);
             Brush br = new SolidBrush(dopColor2);
             Pen pen2 = new Pen(Color.Black);
-            g.FillRectangle(br, startPosX + 60, startPosY + 50, 10, 5);           
+            g.FillRectangle(br, startPosX + 60, startPosY + 50, 10, 5);
             g.DrawRectangle(pen2, startPosX + 59, startPosY + 49, 11, 6);
         }
 
