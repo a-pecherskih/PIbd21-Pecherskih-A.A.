@@ -25,7 +25,7 @@ namespace Lab2_var24
         {
             if (p.places.Count == p.maxCount)
             {
-                return -1;
+                throw new AirfieldOverflowException();
             }
             for (int i = 0; i < p.places.Count; i++)
             {
@@ -47,7 +47,7 @@ namespace Lab2_var24
                 p.places.Remove(index);
                 return plane;
             }
-            return p.defaultValue;
+            throw new AirfieldIndexOutOfRangeException();
         }
 
         private bool CheckFreePlace(int index)
