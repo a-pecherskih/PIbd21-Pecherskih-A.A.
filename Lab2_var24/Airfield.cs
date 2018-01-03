@@ -64,15 +64,18 @@ namespace Lab2_var24
         public void Draw(Graphics g)
         {
             DrawMarking(g);
-            for (int i = 0; i < countPlaces; i++)
+            int i = 0;
+            foreach (var plane in airfield[currentLevel])
             {
-                var plane = airfield[currentLevel][i];
-                if (plane != null)
-                {
-                    plane.setPosition(5 + i / 5 * placeSizeWidth + 5 + 5, i % 5 * placeSizeHeight + 15 - 30);
-                    plane.drawPlane(g);
-                }
+                plane.setPosition(5 + i / 5 * placeSizeWidth + 5, i % 5 * placeSizeHeight + 15 - 30);
+                plane.drawPlane(g);
+                i++;
             }
+        }
+
+        public void Sort()
+        {
+            airfield.Sort();
         }
 
         private void DrawMarking(Graphics g)
