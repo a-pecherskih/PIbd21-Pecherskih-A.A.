@@ -25,3 +25,14 @@ E:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\obj\Debug\Lab2_v
 E:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\obj\Debug\Lab2_var24.exe
 E:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\obj\Debug\Lab2_var24.pdb
 E:\2 курс\ТехПрограм\Лабы\Лабы\Lab2_var24\obj\Debug\Lab2_var24.Form2.resources
+E:\2 курс\ТехПрограм\Лабы\гитхаб\Лаб 6\Lab2_var24\obj\Debug\Lab2_var24.csprojResolveAssemblyReference.cache
+E:\2 курс\ТехПрограм\Лабы\гитхаб\Лаб 6\Lab2_var24\obj\Debug\Lab2_var24.Form1.resources
+E:\2 курс\ТехПрограм\Лабы\гитхаб\Лаб 6\Lab2_var24\obj\Debug\Lab2_var24.Form2.resources
+E:\2 курс\ТехПрограм\Лабы\гитхаб\Лаб 6\Lab2_var24\obj\Debug\Lab2_var24.Properties.Resources.resources
+E:\2 курс\ТехПрограм\Лабы\гитхаб\Лаб 6\Lab2_var24\obj\Debug\Lab2_var24.csproj.GenerateResource.Cache
+E:\2 курс\ТехПрограм\Лабы\гитхаб\Лаб 6\Lab2_var24\obj\Debug\Lab2_var24.csproj.CoreCompileInputs.cache
+E:\2 курс\ТехПрограм\Лабы\гитхаб\Лаб 6\Lab2_var24\obj\Debug\Lab2_var24.exe
+E:\2 курс\ТехПрограм\Лабы\гитхаб\Лаб 6\Lab2_var24\obj\Debug\Lab2_var24.pdb
+E:\2 курс\ТехПрограм\Лабы\гитхаб\Лаб 6\Lab2_var24\bin\Debug\Lab2_var24.exe.config
+E:\2 курс\ТехПрограм\Лабы\гитхаб\Лаб 6\Lab2_var24\bin\Debug\Lab2_var24.exe
+E:\2 курс\ТехПрограм\Лабы\гитхаб\Лаб 6\Lab2_var24\bin\Debug\Lab2_var24.pdb
