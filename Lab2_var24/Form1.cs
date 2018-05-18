@@ -166,5 +166,10 @@ namespace Lab2_var24
 
             }
         }
+
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            airfield.Sort();
+        }
     }
 }

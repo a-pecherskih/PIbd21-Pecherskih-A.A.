@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lab2_var24
 {
-    class LightPlane : Plane
+    public class LightPlane : Plane, IComparable<Plane>, IEquatable<Plane>
     {
         private bool wings;
 
@@ -70,6 +70,60 @@ namespace Lab2_var24
         public void setDopColor(Color color)
         {
             dopColor2 = color;
+        }
+
+        public int CompareTo(LightPlane other)
+        {
+            var res = (this is Plane).CompareTo(other is Plane);
+            if (res != 0)
+            {
+                return res;
+            }
+            if (wings != other.wings)
+            {
+                return wings.CompareTo(other.wings);
+            }
+            if (screw != other.screw)
+            {
+                return screw.CompareTo(other.screw);
+            }
+
+            if (dopColor2 != other.dopColor2 && DopColor == other.DopColor)
+            {
+                dopColor2.Name.CompareTo(other.dopColor2.Name);
+            }
+            return 0;
+        }
+
+        public bool Equals(LightPlane other)
+        {
+            var res = (this is Plane).Equals(other is Plane);
+            if (!res)
+            {
+                return res;
+            }
+            if (wings != other.wings)
+            {
+                return false;
+            }
+            if (screw != other.screw)
+            {
+                return false;
+            }
+
+
+            if (dopColor2 != other.dopColor2)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

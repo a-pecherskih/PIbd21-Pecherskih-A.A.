@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Airfield.cs" />
+    <Compile Include="AirfieldAlreadyHaveException.cs" />
     <Compile Include="AirfieldIndexOutOfRangeException.cs" />
     <Compile Include="AirfieldOverflowException.cs" />
     <Compile Include="ClassArray.cs" />
