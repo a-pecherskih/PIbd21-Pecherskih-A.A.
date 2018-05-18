@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,9 +15,11 @@ namespace Lab2_var24
     {
         Airfield airfield;
         Form2 form;
+        private Logger log;
         public Form1()
         {
             InitializeComponent();
+            log = LogManager.GetCurrentClassLogger();
             airfield = new Airfield(5);
 
             for (int i = 1; i < 6; i++)
@@ -42,6 +45,7 @@ namespace Lab2_var24
         {
             airfield.LevelDown();
             listBoxLevels.SelectedIndex = airfield.getCurrentLevel;
+            log.Info("Переходим на уровень ниже. Текущий уровень: " + airfield.getCurrentLevel);
             Draw();
         }
 
@@ -49,6 +53,7 @@ namespace Lab2_var24
         {
             airfield.LevelUp();
             listBoxLevels.SelectedIndex = airfield.getCurrentLevel;
+            log.Info("Переходим на уровень выше. Текущий уровень: " + airfield.getCurrentLevel);
             Draw();
         }
 
@@ -63,15 +68,22 @@ namespace Lab2_var24
         {
             if (plane != null)
             {
-                int place = airfield.PutPlaneInAirfield(plane);
-                if (place > -1)
+                try
                 {
+                    int place = airfield.PutPlaneInAirfield(plane);
                     Draw();
                     MessageBox.Show("Ваше место: " + place);
+                    log.Info("Отрисовываем самолет на месте: " + place);
                 }
-                else
+                catch (AirfieldOverflowException ex)
                 {
-                    MessageBox.Show("Машину не удалось поставить");
+                    MessageBox.Show(ex.Message, "Ошибка переполнения",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Общая ошибка",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -153,6 +165,11 @@ namespace Lab2_var24
                 Draw();
 
             }
+        }
+
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            airfield.Sort();
         }
     }
 }
